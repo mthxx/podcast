@@ -15,7 +15,7 @@ else
 fi
 
 #Linux Action Show
-FILE="$HOME$PODCAST/Linux_Action_Show/linuxactionshowep328-432p.mp4"
+FILE="$HOME$PODCAST/Linux_Action_Show/linuxactionshowep$las-432p.mp4"
 if [ -f $FILE ];
 then
     las=$(($las+1))
