@@ -36,6 +36,37 @@ CR_URL="$JB_URL/coderradio/${YEAR}/$CR_FILE"
 CR_ACR="CR"
 CR_NAME="Coder Radio"
 
+#Tech Snap Now
+TSN_PATH="$PODCAST_PATH/TechSnap"
+TSN_FILE="bsd-0${TSN}.mp4"
+TSN_URL="$JB_URL/techsnap/${YEAR}/$TSN_FILE"
+TSN_ACR="TSN"
+TSN_NAME="Tech Snap"
+
+#BSD Now
+BSD_PATH="$PODCAST_PATH/BSDNow"
+BSD_FILE="bsd-00${BSD}.mp4"
+BSD_URL="$JB_URL/bsdnow/${YEAR}/$BSD_FILE"
+BSD_ACR="BSD"
+BSD_NAME="BSD Now"
+
+#Faux Show
+FAUX_PATH="$PODCAST_PATH/FauxShow"
+FAUX_FILE="fauxshow-ep${FAUX}.mp4"
+FAUX_URL="$JB_URL/fauxshow/${YEAR}/$FAUX_FILE"
+FAUX_ACR="FAUX"
+FAUX_NAME="Faux Show"
+
+
+echo $FAUX_URL
+
+#Scibyte
+SCI_PATH="$PODCAST_PATH/Scibyte"
+SCI_FILE="scibyte-0${SCI}.mp4"
+SCI_URL="$JB_URL/scibyte/${YEAR}/$SCI_FILE"
+SCI_ACR="SCI"
+SCI_NAME="Scibyte"
+
 checkPodcasts () {
     
     FILE="$1/$2"
@@ -55,10 +86,16 @@ checkPodcasts () {
     fi
 }
 
+
+# Comment out or uncomment any podcasts to your preferences.
 checkPodcasts $TTT_PATH $TTT_FILE "$TTT_NAME" $TTT $TTT_URL $TTT_ACR
 checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
 checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
 checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
+#checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
+#checkPodcasts $BSD_PATH $BSD_FILE "$BSD_NAME" $BSD $BSD_URL $BSD_ACR
+#checkPodcasts $FAUX_PATH $FAUX_FILE "$FAUX_NAME" $FAUX $FAUX_URL $FAUX_ACR
+#checkPodcasts $SCI_PATH $SCI_FILE "$SCI_NAME" $SCI $SCI_URL $SCI_ACR
 
-echo -e TTT=$TTT\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR > "$HOME/Development/podcast/config.sh"
+echo -e TTT=$TTT\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$HOME/Development/podcast/config.sh"
 
