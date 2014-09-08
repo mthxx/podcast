@@ -9,11 +9,11 @@ YEAR="2014"
 JB_URL="http://${YEAR}06.jb-dl.cdn.scaleengine.net"
 
 #Tech Talk Today
-TTT_PATH="$PODCAST_PATH/TechTalkToday"
-TTT_FILE="T3-00$TTT-432p.mp4"
-TTT_NAME="Tech Talk Today"
-TTT_ACR="TTT"
-TTT_URL="$JB_URL/t3/${YEAR}/$TTT_FILE"
+T3_PATH="$PODCAST_PATH/TechTalkToday"
+T3_FILE="T3-00$T3-432p.mp4"
+T3_NAME="Tech Talk Today"
+T3_ACR="T3"
+T3_URL="$JB_URL/t3/${YEAR}/$T3_FILE"
 
 #Linux Action Show
 LAS_PATH="$PODCAST_PATH/LinuxActionShow"
@@ -66,26 +66,24 @@ SCI_NAME="Scibyte"
 
 checkPodcasts () {
     
-    FILE="$1/$2"
+    FILE="$1/$6-$4"
     if [ -f $FILE ]; then
         echo "$3 episode $4 is already downloaded"
         eval $6=$(($4+1))
     else
         CODE="`wget --spider -S "$5" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
-        if [ $CODE -eq 404 ]
-        then
+        if [ $CODE -eq 404 ]; then
             echo "$3 episode $4 is not available yet"
         else
             echo "$3 episiode $4 is downloading"
-            wget $5 -P $1/
+            wget -O$1/$6-$4 $5 -P $1/ 
             eval $6=$(($4+1))
         fi
     fi
 }
 
-
 # Comment out or uncomment any podcasts to your preferences.
-checkPodcasts $TTT_PATH $TTT_FILE "$TTT_NAME" $TTT $TTT_URL $TTT_ACR
+checkPodcasts $T3_PATH $T3_FILE "$T3_NAME" $T3 $T3_URL $T3_ACR
 checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
 checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
 checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
@@ -94,5 +92,7 @@ checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
 #checkPodcasts $FAUX_PATH $FAUX_FILE "$FAUX_NAME" $FAUX $FAUX_URL $FAUX_ACR
 #checkPodcasts $SCI_PATH $SCI_FILE "$SCI_NAME" $SCI $SCI_URL $SCI_ACR
 
-echo -e TTT=$TTT\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$HOME/Development/podcast/config.sh"
+
+
+echo -e T3=$T3\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$HOME/Development/podcast/config.sh"
 
