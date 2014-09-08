@@ -19,6 +19,7 @@ else
     wget http://201406.jb-dl.cdn.scaleengine.net/t3/2014/T3-00$TTT-432p.mp4 -P $TECHTALKTODAY/
 fi
 
+#Linux Action Show
 FILE="$LINUXACTIONSHOW/linuxactionshowep$LAS-432p.mp4"
 if [ -f $FILE ];
 then
@@ -29,6 +30,7 @@ else
     wget http://201406.jb-dl.cdn.scaleengine.net/las/2014/linuxactionshowep$LAS-432p.mp4 -P $LINUXACTIONSHOW/
 fi
 
+#Linux Unplugged
 FILE="$LINUXUNPLUGGED/lup-00$LUP-432p.mp4"
 if [ -f $FILE ];
 then
@@ -39,6 +41,7 @@ else
     wget http://201406.jb-dl.cdn.scaleengine.net/linuxun/2014/lup-00$LUP-432p.mp4 -P $LINUXUNPLUGGED/
 fi
 
+#Coder Radio
 FILE="$CODERRADIO/cr-0$CR-432p.mp4"
 if [ -f $FILE ];
 then
