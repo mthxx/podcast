@@ -57,9 +57,6 @@ FAUX_URL="$JB_URL/fauxshow/${YEAR}/$FAUX_FILE"
 FAUX_ACR="FAUX"
 FAUX_NAME="Faux Show"
 
-
-echo $FAUX_URL
-
 #Scibyte
 SCI_PATH="$PODCAST_PATH/Scibyte"
 SCI_FILE="scibyte-0${SCI}.mp4"
