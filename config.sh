@@ -1,4 +1,4 @@
-ttt=53
-las=329
-lup=57
-cr=118
+TTT=54
+LAS=330
+LUP=57
+CR=118

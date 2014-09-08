@@ -1,49 +1,53 @@
 #!/bin/bash
 source config.sh
 
-#podcast Path
-PODCAST="/Music/podcast"
+#podcast Paths
+PODCAST="$HOME/Videos"
+TECHTALKTODAY="$PODCAST/TechTalkToday"
+LINUXACTIONSHOW="$PODCAST/LinuxActionShow"
+LINUXUNPLUGGED="$PODCAST/LinuxUnplugged"
+CODERRADIO="$PODCAST/CoderRadio"
 
 #Tech Talk Today
-FILE="$HOME$PODCAST/Tech_Talk_Today/T3-00$ttt-432p.mp4"
-if [ -f $FILE ];
-then
-    ttt=$(($ttt+1))
+FILE="$TECHTALKTODAY/T3-00$TTT-432p.mp4"
+
+if [ -f $FILE ]; then
+    echo "Tech Talk Today Episode $TTT Already Downloaded"
+    TTT=$(($TTT+1))
 else
-    echo "Tech Talk Today is Downloading"
-    wget http://201406.jb-dl.cdn.scaleengine.net/t3/2014/T3-00$ttt-432p.mp4 -P $HOME$PODCAST/Tech_Talk_Today/
+    echo "Tech Talk Today Episiode $TTT is Downloading"
+    wget http://201406.jb-dl.cdn.scaleengine.net/t3/2014/T3-00$TTT-432p.mp4 -P $TECHTALKTODAY/
 fi
 
-#Linux Action Show
-FILE="$HOME$PODCAST/Linux_Action_Show/linuxactionshowep$las-432p.mp4"
+FILE="$LINUXACTIONSHOW/linuxactionshowep$LAS-432p.mp4"
 if [ -f $FILE ];
 then
-    las=$(($las+1))
+    echo "Linux Action Show Episode $LAS Already Downloaded"
+    LAS=$(($LAS+1))
 else
-    echo "Linux Action Show is Downloading"
-    wget http://201406.jb-dl.cdn.scaleengine.net/las/2014/linuxactionshowep$las-432p.mp4 -P $HOME$PODCAST/Linux_Action_Show/
+    echo "Linux Action Show Episode $LAS is Downloading"
+    wget http://201406.jb-dl.cdn.scaleengine.net/las/2014/linuxactionshowep$LAS-432p.mp4 -P $LINUXACTIONSHOW/
 fi
 
-#Linux Unplugged
-FILE="$HOME$PODCAST/Linux_Unplugged/lup-00$lup-432p.mp4"
+FILE="$LINUXUNPLUGGED/lup-00$LUP-432p.mp4"
 if [ -f $FILE ];
 then
-    lup=$(($lup+1))
+    echo "Linux Unplugged Episode $LUP Already Downloaded"
+    LUP=$(($LUP+1))
 else
-    echo "Linux Unplugged is Downloading"
-    wget http://201406.jb-dl.cdn.scaleengine.net/linuxun/2014/lup-00$lup-432p.mp4 -P $HOME$PODCAST/Linux_Unplugged/
+    echo "Linux Unplugged Episode $LUP is Downloading"
+    wget http://201406.jb-dl.cdn.scaleengine.net/linuxun/2014/lup-00$LUP-432p.mp4 -P $LINUXUNPLUGGED/
 fi
 
-
-# Coder Radio
-FILE="$HOME$PODCAST/Coder_Radio/cr-0$cr-432p.mp4"
+FILE="$CODERRADIO/cr-0$CR-432p.mp4"
 if [ -f $FILE ];
 then
-    cr=$(($cr+1))
+    echo "Coder Radio Episode $CR Already Downloaded"
+    CR=$(($CR+1))
 else
-    echo "Coder Radio is Downloading"
-    wget http://201406.jb-dl.cdn.scaleengine.net/coderradio/2014/cr-0$cr-432p.mp4 -P $HOME$PODCAST/Coder_Radio/
+    echo "Coder Radio Episode $CR is Downloading"
+    wget http://201406.jb-dl.cdn.scaleengine.net/coderradio/2014/cr-0$CR-432p.mp4 -P $CODERRADIO/
 fi
 
-echo -e ttt=$ttt\\nlas=$las\\nlup=$lup\\ncr=$cr > "$HOME/Development/podcast/config.sh"
+echo -e TTT=$TTT\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR > "$HOME/Development/podcast/config.sh"
 
