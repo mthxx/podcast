@@ -1,87 +1,64 @@
 #!/bin/bash
 source config.sh
 
-#Podcast Paths
+#Podcast Path
 PODCAST_PATH="$HOME/Videos"
-TTT_PATH="$PODCAST_PATH/TechTalkToday"
-LAS_PATH="$PODCAST_PATH/LinuxActionShow"
-LUP_PATH="$PODCAST_PATH/LinuxUnplugged"
-CR_PATH="$PODCAST_PATH/CoderRadio"
 
-TTT_FILE="T3-00$TTT-432p.mp4"
-LAS_FILE="linuxactionshowep$LAS-432p.mp4"
-LUP_FILE="lup-00$LUP-432p.mp4"
-CR_FILE="cr-0$CR-432p.mp4"
-
+#Jupiter Broadcasting Download URL
+YEAR="2014"
+JB_URL="http://${YEAR}06.jb-dl.cdn.scaleengine.net"
 
 #Tech Talk Today
-FILE="$TTT_PATH/$TTT_FILE"
-
-if [ -f $FILE ]; then
-    echo "Tech Talk Today episode $TTT is already downloaded"
-    TTT=$(($TTT+1))
-else
-    CODE="`wget --spider -S "http://201406.jb-dl.cdn.scaleengine.net/t3/2014/$TTT_FILE" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
-    if [ $CODE -eq 404 ]
-    then
-        echo "Tech Talk Today episode $TTT is not available yet"
-    else
-        echo "Tech Talk Today episiode $TTT is downloading"
-        wget http://201406.jb-dl.cdn.scaleengine.net/t3/2014/$TTT_FILE -P $TTT_PATH/
-    fi
-fi
+TTT_PATH="$PODCAST_PATH/TechTalkToday"
+TTT_FILE="T3-00$TTT-432p.mp4"
+TTT_NAME="Tech Talk Today"
+TTT_ACR="TTT"
+TTT_URL="$JB_URL/t3/${YEAR}/$TTT_FILE"
 
 #Linux Action Show
-FILE="$LAS_PATH/$LAS_FILE"
-if [ -f $FILE ];
-then
-    echo "Linux Action Show episode $LAS is already downloaded"
-    LAS=$(($LAS+1))
-else
-    CODE="`wget --spider -S "http://201406.jb-dl.cdn.scaleengine.net/las/2014/$LAS_FILE" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
-    if [ $CODE -eq 404 ]
-    then
-        echo "Linux Action Show episode $LAS is not available yet"
-    else
-        echo "Linux Action Show episode $LAS is downloading"
-        wget http://201406.jb-dl.cdn.scaleengine.net/las/2014/$LAS_FILE -P $LAS_PATH/
-    fi
-fi
+LAS_PATH="$PODCAST_PATH/LinuxActionShow"
+LAS_FILE="linuxactionshowep$LAS-432p.mp4"
+LAS_NAME="Linux Action Show"
+LAS_ACR="LAS"
+LAS_URL="$JB_URL/las/${YEAR}/$LAS_FILE"
 
 #Linux Unplugged
-FILE="$LUP_PATH/$LUP_FILE"
-if [ -f $FILE ];
-then
-    echo "Linux Unplugged episode $LUP already downloaded"
-    LUP=$(($LUP+1))
-else
-    CODE="`wget --spider -S "http://201406.jb-dl.cdn.scaleengine.net/linuxun/2014/$LUP_FILE" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
-    if [ $CODE -eq 404 ]
-    then
-        echo "Linux Unplugged episode $LUP is not available yet"
-    else
-        echo "Linux Unplugged episode $LUP is downloading"
-        wget http://201406.jb-dl.cdn.scaleengine.net/linuxun/2014/$LUP_FILE -P $LUP_PATH/
-    
-    fi
-fi
+LUP_PATH="$PODCAST_PATH/LinuxUnplugged"
+LUP_FILE="lup-00$LUP-432p.mp4"
+LUP_NAME="Linux Unplugged"
+LUP_ACR="LUP"
+LUP_URL="$JB_URL/linuxun/${YEAR}/$LUP_FILE"
 
 #Coder Radio
-FILE="$CR_PATH/$CR_FILE"
-if [ -f $FILE ];
-then
-    echo "Coder Radio episode $CR is already downloaded"
-    CR=$(($CR+1))
-else
-    CODE="`wget --spider -S "http://201406.jb-dl.cdn.scaleengine.net/coderradio/2014/$CR_FILE" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
-    if [ $CODE -eq 404 ]
-    then
-        echo "Coder Radio episode $CR is not available yet"
+CR_PATH="$PODCAST_PATH/CoderRadio"
+CR_FILE="cr-0$CR-432p.mp4"
+CR_URL="$JB_URL/coderradio/${YEAR}/$CR_FILE"
+CR_ACR="CR"
+CR_NAME="Coder Radio"
+
+checkPodcasts () {
+    
+    FILE="$1/$2"
+    if [ -f $FILE ]; then
+        echo "$3 episode $4 is already downloaded"
+        eval $6=$(($4+1))
     else
-        echo "Coder Radio episode $CR is downloading"
-        wget http://201406.jb-dl.cdn.scaleengine.net/coderradio/2014/$CR_FILE -P $CR_PATH/
+        CODE="`wget --spider -S "$5" 2>&1 | grep "HTTP/" | awk '{print $2}'`"
+        if [ $CODE -eq 404 ]
+        then
+            echo "$3 episode $4 is not available yet"
+        else
+            echo "$3 episiode $4 is downloading"
+            wget $5 -P $1/
+            eval $6=$(($4+1))
+        fi
     fi
-fi
+}
+
+checkPodcasts $TTT_PATH $TTT_FILE "$TTT_NAME" $TTT $TTT_URL $TTT_ACR
+checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
+checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
+checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
 
 echo -e TTT=$TTT\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR > "$HOME/Development/podcast/config.sh"
 
