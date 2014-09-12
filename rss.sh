@@ -38,7 +38,7 @@ CR_NAME="Coder Radio"
 
 #Tech Snap Now
 TSN_PATH="$PODCAST_PATH/TechSnap"
-TSN_FILE="bsd-0${TSN}.mp4"
+TSN_FILE="techsnap-0${TSN}.mp4"
 TSN_URL="$JB_URL/techsnap/${YEAR}/$TSN_FILE"
 TSN_ACR="TSN"
 TSN_NAME="Tech Snap"
@@ -87,7 +87,7 @@ checkPodcasts $T3_PATH $T3_FILE "$T3_NAME" $T3 $T3_URL $T3_ACR
 checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
 checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
 checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
-#checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
+checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
 #checkPodcasts $BSD_PATH $BSD_FILE "$BSD_NAME" $BSD $BSD_URL $BSD_ACR
 #checkPodcasts $FAUX_PATH $FAUX_FILE "$FAUX_NAME" $FAUX $FAUX_URL $FAUX_ACR
 #checkPodcasts $SCI_PATH $SCI_FILE "$SCI_NAME" $SCI $SCI_URL $SCI_ACR
