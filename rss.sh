@@ -3,6 +3,7 @@ source config.sh
 
 #Podcast Path
 PODCAST_PATH="$HOME/Videos"
+SELF_PATH="$HOME/Development/podcast/"
 
 #Jupiter Broadcasting Download URL
 YEAR="2014"
@@ -94,5 +95,5 @@ checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
 
 
 
-echo -e T3=$T3\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$HOME/Development/podcast/config.sh"
+echo -e T3=$T3\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$SELF_PATH/config.sh"
 
