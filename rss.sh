@@ -1,64 +1,72 @@
 #!/bin/bash
-source config.sh
+
+
+
+# Use these if you are running the script as root, 
+# such as in a cronjob saving to owncloud on the owncloud server
+#USER=""
+#HOME="/home/$USER"
 
 #Podcast Path
-PODCAST_PATH="$HOME/Videos"
-SELF_PATH="$HOME/Development/podcast/"
+PODCAST_PATH="$HOME/Videos"              # Location of the parent directory where you want your podcasts saved
+SELF_PATH="$HOME/Development/podcast"    # The location of the directory containing this script
 
-#Jupiter Broadcasting Download URL
+source $SELF_PATH/config.sh
+
+# Jupiter Broadcasting Download URL
 YEAR="2014"
 JB_URL="http://${YEAR}06.jb-dl.cdn.scaleengine.net"
 
-#Tech Talk Today
+# Tech Talk Today
 T3_PATH="$PODCAST_PATH/TechTalkToday"
 T3_FILE="T3-00$T3-432p.mp4"
 T3_NAME="Tech Talk Today"
 T3_ACR="T3"
 T3_URL="$JB_URL/t3/${YEAR}/$T3_FILE"
 
-#Linux Action Show
+# Linux Action Show
 LAS_PATH="$PODCAST_PATH/LinuxActionShow"
 LAS_FILE="linuxactionshowep$LAS-432p.mp4"
 LAS_NAME="Linux Action Show"
 LAS_ACR="LAS"
 LAS_URL="$JB_URL/las/${YEAR}/$LAS_FILE"
 
-#Linux Unplugged
+# Linux Unplugged
 LUP_PATH="$PODCAST_PATH/LinuxUnplugged"
 LUP_FILE="lup-00$LUP-432p.mp4"
 LUP_NAME="Linux Unplugged"
 LUP_ACR="LUP"
 LUP_URL="$JB_URL/linuxun/${YEAR}/$LUP_FILE"
 
-#Coder Radio
+# Coder Radio
 CR_PATH="$PODCAST_PATH/CoderRadio"
 CR_FILE="cr-0$CR-432p.mp4"
 CR_URL="$JB_URL/coderradio/${YEAR}/$CR_FILE"
 CR_ACR="CR"
 CR_NAME="Coder Radio"
 
-#Tech Snap Now
+# Tech Snap Now
 TSN_PATH="$PODCAST_PATH/TechSnap"
 TSN_FILE="techsnap-0${TSN}.mp4"
 TSN_URL="$JB_URL/techsnap/${YEAR}/$TSN_FILE"
 TSN_ACR="TSN"
 TSN_NAME="Tech Snap"
 
-#BSD Now
+# BSD Now
 BSD_PATH="$PODCAST_PATH/BSDNow"
 BSD_FILE="bsd-00${BSD}.mp4"
 BSD_URL="$JB_URL/bsdnow/${YEAR}/$BSD_FILE"
 BSD_ACR="BSD"
 BSD_NAME="BSD Now"
 
-#Faux Show
+# Faux Show
 FAUX_PATH="$PODCAST_PATH/FauxShow"
 FAUX_FILE="fauxshow-ep${FAUX}.mp4"
 FAUX_URL="$JB_URL/fauxshow/${YEAR}/$FAUX_FILE"
 FAUX_ACR="FAUX"
 FAUX_NAME="Faux Show"
 
-#Scibyte
+# Scibyte
 SCI_PATH="$PODCAST_PATH/Scibyte"
 SCI_FILE="scibyte-0${SCI}.mp4"
 SCI_URL="$JB_URL/scibyte/${YEAR}/$SCI_FILE"
