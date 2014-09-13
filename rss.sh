@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # Use these if you are running the script as root, 
 # such as in a cronjob saving to owncloud on the owncloud server
 #USER=""
@@ -10,6 +8,7 @@
 #Podcast Path
 PODCAST_PATH="$HOME/Videos"              # Location of the parent directory where you want your podcasts saved
 SELF_PATH="$HOME/Development/podcast"    # The location of the directory containing this script
+BACKLOG="5"
 
 source $SELF_PATH/config.sh
 
@@ -76,6 +75,7 @@ SCI_NAME="Scibyte"
 checkPodcasts () {
     
     FILE="$1/$6-$4"
+    OLD_FILE="$1/$6-`expr $4 - $BACKLOG`"
     if [ -f $FILE ]; then
         echo "$3 episode $4 is already downloaded"
         eval $6=$(($4+1))
@@ -87,6 +87,11 @@ checkPodcasts () {
             echo "$3 episiode $4 is downloading"
             wget -O$1/$6-$4 $5 -P $1/ 
             eval $6=$(($4+1))
+            
+            if [ -f $OLD_FILE ]; then
+                echo "Removing episode `expr $4 - $BACKLOG`"
+                echo `rm $OLD_FILE`
+            fi
         fi
     fi
 }
