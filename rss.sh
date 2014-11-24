@@ -72,6 +72,13 @@ SCI_URL="$JB_URL/scibyte/${YEAR}/$SCI_FILE"
 SCI_ACR="SCI"
 SCI_NAME="Scibyte"
 
+# Womens Tech Radio
+WTR_PATH="$PODCAST_PATH/WomensTechRadio"
+WTR_FILE="WTR-000${WTR}.mp4"
+WTR_URL="$JB_URL/wtr/${YEAR}/$WTR_FILE"
+WTR_ACR="WTR"
+WTR_NAME="WomensTechRadio"
+
 checkPodcasts () {
     
     FILE="$1/$6-$4"
@@ -101,12 +108,13 @@ checkPodcasts $T3_PATH $T3_FILE "$T3_NAME" $T3 $T3_URL $T3_ACR
 checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
 checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
 checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
-checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
+#checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
 #checkPodcasts $BSD_PATH $BSD_FILE "$BSD_NAME" $BSD $BSD_URL $BSD_ACR
 #checkPodcasts $FAUX_PATH $FAUX_FILE "$FAUX_NAME" $FAUX $FAUX_URL $FAUX_ACR
 #checkPodcasts $SCI_PATH $SCI_FILE "$SCI_NAME" $SCI $SCI_URL $SCI_ACR
+checkPodcasts $WTR_PATH $WTR_FILE "$WTR_NAME" $WTR $WTR_URL $WTR_ACR
 
 
 
-echo -e T3=$T3\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI > "$SELF_PATH/config.sh"
+echo -e T3=$T3\\nLAS=$LAS\\nLUP=$LUP\\nCR=$CR\\nTSN=$TSN\\nBSD=$BSD\\nFAUX=$FAUX\\nSCI=$SCI\\nWTR=$WTR > "$SELF_PATH/config.sh"
 
