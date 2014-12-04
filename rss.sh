@@ -6,8 +6,8 @@
 #HOME="/home/$USER"
 
 #Podcast Path
-PODCAST_PATH="$HOME/Videos"              # Location of the parent directory where you want your podcasts saved
-SELF_PATH="$HOME/Development/podcast"    # The location of the directory containing this script
+PODCAST_PATH="$HOME/Podcasts"              # Location of the parent directory where you want your podcasts saved
+SELF_PATH="$HOME/Development/podcast"      # The location of the directory containing this script
 BACKLOG="5"
 
 source $SELF_PATH/config.sh
@@ -18,7 +18,7 @@ JB_URL="http://${YEAR}06.jb-dl.cdn.scaleengine.net"
 
 # Tech Talk Today
 T3_PATH="$PODCAST_PATH/TechTalkToday"
-T3_FILE="T3-00$T3-432p.mp4"
+T3_FILE="T3-0$T3-432p.mp4"
 T3_NAME="Tech Talk Today"
 T3_ACR="T3"
 T3_URL="$JB_URL/t3/${YEAR}/$T3_FILE"
@@ -108,7 +108,7 @@ checkPodcasts $T3_PATH $T3_FILE "$T3_NAME" $T3 $T3_URL $T3_ACR
 checkPodcasts $LAS_PATH $LAS_FILE "$LAS_NAME" $LAS $LAS_URL $LAS_ACR
 checkPodcasts $LUP_PATH $LUP_FILE "$LUP_NAME" $LUP $LUP_URL $LUP_ACR
 checkPodcasts $CR_PATH $CR_FILE "$CR_NAME" $CR $CR_URL $CR_ACR
-#checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
+checkPodcasts $TSN_PATH $TSN_FILE "$TSN_NAME" $TSN $TSN_URL $TSN_ACR
 #checkPodcasts $BSD_PATH $BSD_FILE "$BSD_NAME" $BSD $BSD_URL $BSD_ACR
 #checkPodcasts $FAUX_PATH $FAUX_FILE "$FAUX_NAME" $FAUX $FAUX_URL $FAUX_ACR
 #checkPodcasts $SCI_PATH $SCI_FILE "$SCI_NAME" $SCI $SCI_URL $SCI_ACR
