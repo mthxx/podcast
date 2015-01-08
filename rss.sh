@@ -13,7 +13,7 @@ BACKLOG="5"
 source $SELF_PATH/config.sh
 
 # Jupiter Broadcasting Download URL
-YEAR="2014"
+YEAR="2015"
 JB_URL="http://${YEAR}06.jb-dl.cdn.scaleengine.net"
 
 # Tech Talk Today
@@ -32,7 +32,7 @@ LAS_URL="$JB_URL/las/${YEAR}/$LAS_FILE"
 
 # Linux Unplugged
 LUP_PATH="$PODCAST_PATH/LinuxUnplugged"
-LUP_FILE="lup-00$LUP-432p.mp4"
+LUP_FILE="lup-00$LUP.mp4"
 LUP_NAME="Linux Unplugged"
 LUP_ACR="LUP"
 LUP_URL="$JB_URL/linuxun/${YEAR}/$LUP_FILE"
